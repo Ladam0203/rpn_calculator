@@ -31,9 +31,9 @@ class _RPNCalculatorState extends State<RPNCalculator> {
       ),
       home: Scaffold(
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //Display registry
-            SizedBox(height: 80),
             Container(
               height: 80,
               margin: EdgeInsets.all(10),
@@ -73,11 +73,44 @@ class _RPNCalculatorState extends State<RPNCalculator> {
                 ),
               ),
             ),
-            //Arithmetic buttons
+            SizedBox(height: 10),
+            //1st Row of Number buttons
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FloatingActionButton(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.amber[200],
+                  onPressed: () {
+                    setState(() {
+                      _input = _input + '7';
+                    });
+                  },
+                  child: Text('7', style: TextStyle(fontSize: 32)),
+                ),
+                FloatingActionButton(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.amber[200],
+                  onPressed: () {
+                    setState(() {
+                      _input = _input + '8';
+                    });
+                  },
+                  child: Text('8', style: TextStyle(fontSize: 32)),
+                ),
+                FloatingActionButton(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.amber[200],
+                  onPressed: () {
+                    setState(() {
+                      _input = _input + '9';
+                    });
+                  },
+                  child: Text('9', style: TextStyle(fontSize: 32)),
+                ),
+                FloatingActionButton(
+                  foregroundColor: Colors.amber[200],
+                  backgroundColor: Colors.black,
                   onPressed: () {
                     setState(() {
                       _state = transform(_state, cms.Add());
@@ -85,7 +118,46 @@ class _RPNCalculatorState extends State<RPNCalculator> {
                   },
                   child: Text('+', style: TextStyle(fontSize: 32)),
                 ),
+              ],
+            ),
+            SizedBox(height: 10),
+            //2nd Row of Number buttons
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
                 FloatingActionButton(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.amber[200],
+                  onPressed: () {
+                    setState(() {
+                      _input = _input + '4';
+                    });
+                  },
+                  child: Text('4', style: TextStyle(fontSize: 32)),
+                ),
+                FloatingActionButton(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.amber[200],
+                  onPressed: () {
+                    setState(() {
+                      _input = _input + '5';
+                    });
+                  },
+                  child: Text('5', style: TextStyle(fontSize: 32)),
+                ),
+                FloatingActionButton(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.amber[200],
+                  onPressed: () {
+                    setState(() {
+                      _input = _input + '6';
+                    });
+                  },
+                  child: Text('6', style: TextStyle(fontSize: 32)),
+                ),
+                FloatingActionButton(
+                  foregroundColor: Colors.amber[200],
+                  backgroundColor: Colors.black,
                   onPressed: () {
                     setState(() {
                       _state = transform(_state, cms.Subtract());
@@ -93,7 +165,47 @@ class _RPNCalculatorState extends State<RPNCalculator> {
                   },
                   child: Text('-', style: TextStyle(fontSize: 32)),
                 ),
+
+              ],
+            ),
+            SizedBox(height: 10),
+            //3rd Row of Number buttons
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
                 FloatingActionButton(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.amber[200],
+                  onPressed: () {
+                    setState(() {
+                      _input = _input + '1';
+                    });
+                  },
+                  child: Text('1', style: TextStyle(fontSize: 32)),
+                ),
+                FloatingActionButton(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.amber[200],
+                  onPressed: () {
+                    setState(() {
+                      _input = _input + '2';
+                    });
+                  },
+                  child: Text('2', style: TextStyle(fontSize: 32)),
+                ),
+                FloatingActionButton(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.amber[200],
+                  onPressed: () {
+                    setState(() {
+                      _input = _input + '3';
+                    });
+                  },
+                  child: Text('3', style: TextStyle(fontSize: 32)),
+                ),
+                FloatingActionButton(
+                  foregroundColor: Colors.amber[200],
+                  backgroundColor: Colors.black,
                   onPressed: () {
                     setState(() {
                       _state = transform(_state, cms.Multiply());
@@ -101,7 +213,46 @@ class _RPNCalculatorState extends State<RPNCalculator> {
                   },
                   child: Text('*', style: TextStyle(fontSize: 32)),
                 ),
+              ],
+            ),
+            SizedBox(height: 10),
+            //4th Row of Number buttons
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
                 FloatingActionButton(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.amber[200],
+                  onPressed: () {
+                    setState(() {
+                      _input = _input + '.';
+                    });
+                  },
+                  child: Text('.', style: TextStyle(fontSize: 32)),
+                ),
+                FloatingActionButton(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.amber[200],
+                  onPressed: () {
+                    setState(() {
+                      _input = _input + '0';
+                    });
+                  },
+                  child: Text('0', style: TextStyle(fontSize: 32)),
+                ),
+                FloatingActionButton(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.amber[200],
+                  onPressed: () {
+                    setState(() {
+                      _input = _input.substring(0, _input.length - 1);
+                    });
+                  },
+                  child: Icon(Icons.backspace, size: 32),
+                ),
+                FloatingActionButton(
+                  foregroundColor: Colors.amber[200],
+                  backgroundColor: Colors.black,
                   onPressed: () {
                     setState(() {
                       _state = transform(_state, cms.Divide());
@@ -111,163 +262,11 @@ class _RPNCalculatorState extends State<RPNCalculator> {
                 ),
               ],
             ),
-            //1st Row of Number buttons
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                FloatingActionButton(
-                  foregroundColor: Colors.blueAccent,
-                  backgroundColor: Colors.white,
-                  onPressed: () {
-                    setState(() {
-                      _input = _input + '7';
-                    });
-                  },
-                  child: Text('7', style: TextStyle(fontSize: 32)),
-                ),
-                FloatingActionButton(
-                  foregroundColor: Colors.blueAccent,
-                  backgroundColor: Colors.white,
-                  onPressed: () {
-                    setState(() {
-                      _input = _input + '8';
-                    });
-                  },
-                  child: Text('8', style: TextStyle(fontSize: 32)),
-                ),
-                FloatingActionButton(
-                  foregroundColor: Colors.blueAccent,
-                  backgroundColor: Colors.white,
-                  onPressed: () {
-                    setState(() {
-                      _input = _input + '9';
-                    });
-                  },
-                  child: Text('9', style: TextStyle(fontSize: 32)),
-                ),
-              ],
-            ),
-            //2nd Row of Number buttons
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                FloatingActionButton(
-                  foregroundColor: Colors.blueAccent,
-                  backgroundColor: Colors.white,
-                  onPressed: () {
-                    setState(() {
-                      _input = _input + '4';
-                    });
-                  },
-                  child: Text('4', style: TextStyle(fontSize: 32)),
-                ),
-                FloatingActionButton(
-                  foregroundColor: Colors.blueAccent,
-                  backgroundColor: Colors.white,
-                  onPressed: () {
-                    setState(() {
-                      _input = _input + '5';
-                    });
-                  },
-                  child: Text('5', style: TextStyle(fontSize: 32)),
-                ),
-                FloatingActionButton(
-                  foregroundColor: Colors.blueAccent,
-                  backgroundColor: Colors.white,
-                  onPressed: () {
-                    setState(() {
-                      _input = _input + '6';
-                    });
-                  },
-                  child: Text('6', style: TextStyle(fontSize: 32)),
-                ),
-              ],
-            ),
-            //3rd Row of Number buttons
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                FloatingActionButton(
-                  foregroundColor: Colors.blueAccent,
-                  backgroundColor: Colors.white,
-                  onPressed: () {
-                    setState(() {
-                      _input = _input + '1';
-                    });
-                  },
-                  child: Text('1', style: TextStyle(fontSize: 32)),
-                ),
-                FloatingActionButton(
-                  foregroundColor: Colors.blueAccent,
-                  backgroundColor: Colors.white,
-                  onPressed: () {
-                    setState(() {
-                      _input = _input + '2';
-                    });
-                  },
-                  child: Text('2', style: TextStyle(fontSize: 32)),
-                ),
-                FloatingActionButton(
-                  foregroundColor: Colors.blueAccent,
-                  backgroundColor: Colors.white,
-                  onPressed: () {
-                    setState(() {
-                      _input = _input + '3';
-                    });
-                  },
-                  child: Text('3', style: TextStyle(fontSize: 32)),
-                ),
-              ],
-            ),
-            //4th Row of Number buttons
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                FloatingActionButton(
-                  foregroundColor: Colors.blueAccent,
-                  backgroundColor: Colors.white,
-                  onPressed: () {
-                    setState(() {
-                      _input = _input + '.';
-                    });
-                  },
-                  child: Text('.', style: TextStyle(fontSize: 32)),
-                ),
-                FloatingActionButton(
-                  foregroundColor: Colors.blueAccent,
-                  backgroundColor: Colors.white,
-                  onPressed: () {
-                    setState(() {
-                      _input = _input + '0';
-                    });
-                  },
-                  child: Text('0', style: TextStyle(fontSize: 32)),
-                ),
-                FloatingActionButton(
-                  foregroundColor: Colors.blueAccent,
-                  backgroundColor: Colors.white,
-                  onPressed: () {
-                    setState(() {
-                      _input = _input.substring(0, _input.length - 1);
-                    });
-                  },
-                  child: Icon(Icons.backspace, size: 32),
-                ),
-              ],
-            ),
+            SizedBox(height: 20),
             //RPN Buttons
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                //Undo button
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      _state = transform(_state, cms.Undo());
-                    });
-                  },
-                  child: Text('Undo', style: TextStyle(fontSize: 32)),
-                ),
                 //Clear button
                 ElevatedButton(
                   onPressed: () {
@@ -276,7 +275,24 @@ class _RPNCalculatorState extends State<RPNCalculator> {
                       _input = '';
                     });
                   },
-                  child: Text('Clear', style: TextStyle(fontSize: 32)),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.amber[200],
+                    foregroundColor: Colors.black,
+                  ),
+                  child: Text('C', style: TextStyle(fontSize: 32)),
+                ),
+                //Undo button
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      _state = transform(_state, cms.Undo());
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.amber[200],
+                    foregroundColor: Colors.black,
+                  ),
+                  child: Icon(Icons.undo, size: 32),
                 ),
                 //Add button
                 ElevatedButton(
@@ -286,7 +302,11 @@ class _RPNCalculatorState extends State<RPNCalculator> {
                       _input = '';
                     });
                   },
-                  child: Text('Enter', style: TextStyle(fontSize: 32)),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.amber[200],
+                    foregroundColor: Colors.black,
+                  ),
+                  child: Icon(Icons.keyboard_return, size: 32),
                 ),
               ],
             )

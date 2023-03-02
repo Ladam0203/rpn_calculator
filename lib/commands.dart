@@ -57,7 +57,8 @@ class Enter implements ParameterizedCommand {
   );
 }
 
-class Undo extends Command {
+class Undo extends CheckedCommand {
+  accept(registry) => registry.length > 0;
   execute(state) => State(
     registry: state.history.last(state.registry),
     history: [...state.history.take(state.history.length - 1)],
